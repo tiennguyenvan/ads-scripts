@@ -16,19 +16,19 @@ $(document).ready(function(){
 	});
 
 	// hidding aff links
-	$('a[href]').attr('target', '_blank');	
-	setTimeout(function(){
-		$('a[href]').each(function(){
-			var href = $(this).attr('href');
-
-			$(this).mouseenter()(function(){
-				$(this).attr('href', 'javascript: void()');
-			});
-			$(this).mousedown(function(){
-				$(this).attr('href', href);
-			});
-		});
-	}, 2000);
+//	$('a[href]').attr('target', '_blank');	
+//	setTimeout(function(){
+//		$('a[href]').each(function(){
+//			var href = $(this).attr('href');
+//
+//			$(this).mouseenter()(function(){
+//				$(this).attr('href', 'javascript: void()');
+//			});
+//			$(this).mousedown(function(){
+//				$(this).attr('href', href);
+//			});
+//		});
+//	}, 2000);
 });
 
 
