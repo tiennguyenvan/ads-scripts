@@ -415,12 +415,18 @@ img {
 .f3 {
 	border-top: 1px solid #e0e0e0;
 	padding: 30px 0;
-	text-align: center;
+	text-align: left;
 	font-size: 12px;
 	color: #999;
 }
-.f3 a {
-	margin: 0 1em;
+.f3 .section {
+	float: right;
+}
+.f3 .title {
+	display: none;
+}
+.f3 ul, .f3 li {
+	display: inline;
 }
 /* ads manager */
 .top > .w > *,

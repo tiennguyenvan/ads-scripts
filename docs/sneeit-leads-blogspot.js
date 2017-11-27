@@ -18,7 +18,7 @@ $(document).ready(function(){
 		'<a href="https://twitter.com/tiennguyentweet" target="_blank">TWITTER</a>'+
 		'<a href="https://plus.google.com/b/102946791258279958344/" target="_blank">G+</a>'+
 		'<a href="https://www.youtube.com/channel/UCg-yHM0fuL1nwEdIIolD6sg" target="_blank">YOUTUBE</a>'+
-		'<div class="clear"/>'
+		'<div class="clear"></div>'
 	).appendTo($('.top .w'));			
 	
 
@@ -126,7 +126,7 @@ $(document).ready(function(){
 	
 	// footer copyright
 	var dt = new Date();
-	$('<span>Copyright 2013-'+dt.getYear()+' '+ $('.brand > a > b').text()+' - All Rights Reserved.</span>').prependTo($('#footer .f3'));
+	$('<span>Copyright 2013-'+dt.getYear()+' '+ $('.brand > a > b').text()+' - All Rights Reserved.</span>').prependTo($('#footer .f3 .f3-inner'));
 	
 	// move breadcrumb to top
 	$('#post-breadcrumb').prependTo($('.post .item'));
