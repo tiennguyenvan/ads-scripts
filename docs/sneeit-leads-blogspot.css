@@ -428,6 +428,15 @@ img {
 .f3 ul, .f3 li {
 	display: inline;
 }
+.f3 a {
+	text-decoration: none;
+	margin: 0 0 0 1em;
+	color: black;
+}
+.f3 a:hover {
+	text-decoration: underline!important;
+}
+
 /* ads manager */
 .top > .w > *,
 .main > .menu > *,
@@ -526,13 +535,21 @@ img {
 		display: none;
 	}
 
-	.f3-inner a:first-child {
-		margin: 10px 0;
-		display: block;
-	}
 	.post-ads-top {
 		width: 200px;
 	}
+	.f3 {		
+		text-align: center;		
+	}
+	.f3 .section {
+		float: none;		
+	}
+	
+	.f3 a {
+		display: inline-block;
+		margin: 10px 0 0 1em;		
+	}
+	
 }
 @media screen and (max-width: 509px) {
 	.w {
