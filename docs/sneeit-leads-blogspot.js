@@ -128,6 +128,12 @@ $(document).ready(function(){
 	var dt = new Date();
 	$('<span>Copyright 2013-'+dt.getYear()+' '+ $('.brand > a > b').text()+' - All Rights Reserved.</span>').prependTo($('#footer .f3 .f3-inner'));
 	
+	$('.f3 a').each(function(){
+		if ($(this).text().toLowerCase() == 'Home') {
+			$(this).remove();
+		}
+	});
+	
 	// move breadcrumb to top
 	$('#post-breadcrumb').prependTo($('.post .item'));
 	$('<span> / </span>').insertAfter($('#post-breadcrumb a'));
@@ -143,12 +149,12 @@ $(document).ready(function(){
 	});
 
 	// hidding aff links
-	$('a[href]').attr('target', "_blank");	
+//	$('a[href]').attr('target', "_blank");
 	setTimeout(function(){
 		$('a[href]').each(function(){
 			var href = $(this).attr('href');
 
-			$(this).mouseenter()(function(){
+			$(this).mouseenter(function(){
 				$(this).attr('href', 'javascript: void()');
 			});
 			$(this).mousedown(function(){

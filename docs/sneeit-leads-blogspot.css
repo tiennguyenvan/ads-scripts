@@ -427,6 +427,7 @@ img {
 }
 .f3 ul, .f3 li {
 	display: inline;
+	padding: 0;
 }
 .f3 a {
 	text-decoration: none;
@@ -547,7 +548,7 @@ img {
 	
 	.f3 a {
 		display: inline-block;
-		margin: 10px 0 0 1em;		
+		margin: 10px 0.5em 0 0.5em;		
 	}
 	
 }
