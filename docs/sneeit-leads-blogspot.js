@@ -2,8 +2,7 @@ var sneeit_leads_blogspot = setInterval(function(){	if (typeof($) == 'undefined'
 clearInterval(sneeit_leads_blogspot);
 $(document).ready(function(){
 	
-	// MODIFY HTML 
-	// place ads into position
+	// MODIFY HTML 	
 	// toplinks: <!-- WpGetTopLink1 -->
 	$('<ins class="adsbygoogle"'+
 		'style="display:inline-block;width:468px;height:15px"' +
@@ -13,6 +12,15 @@ $(document).ready(function(){
 			'(adsbygoogle = window.adsbygoogle || []).push({});'+
 		'<\/script>'
 	).prependTo($('.top .w'));
+	
+	// top social icons
+	$('<a href="https://www.facebook.com/sneeitdotcom/" target="_blank">FACE</a>'+
+		'<a href="https://twitter.com/tiennguyentweet" target="_blank">TWITTER</a>'+
+		'<a href="https://plus.google.com/b/102946791258279958344/" target="_blank">G+</a>'+
+		'<a href="https://www.youtube.com/channel/UCg-yHM0fuL1nwEdIIolD6sg" target="_blank">YOUTUBE</a>'+
+		'<div class="clear"/>'
+	).appendTo($('.top .w'));			
+	
 
 	// brandads <!-- WpGetBrandRes1 -->
 	$('<div class="brand-lead">' + 
@@ -24,8 +32,16 @@ $(document).ready(function(){
 		'<script>'+
 		'(adsbygoogle = window.adsbygoogle || []).push({});'+
 		'<\/script>'+
-		'</div>'
+		'</div><div class="clear"></div>'
 	).appendTo($('.brand'));
+	
+	// main menu
+	$('.main > .menu').html(
+		'<a href="/">Home</a>'+
+		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'+
+		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'+
+		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'
+	);
 	
 	// submneu <!-- WpGetMainTrans2 --> <!-- WpGetTrans3 -->
 	$('<ins class="adsbygoogle"' + 
@@ -97,7 +113,20 @@ $(document).ready(function(){
 		'</script>'
 	).insertAfter($('.PopularPosts1'));
 
+	// footer ads <!-- WpGetFooter2 -->
+	$('<ins class="adsbygoogle"' + 
+		'style="display:block"' + 
+		'data-ad-client="ca-pub-5209796814200646"' + 
+		'data-ad-slot="9842434968"' + 
+		'data-ad-format="auto"></ins>' + 
+		'<script>' + 
+		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
+		'</script>'
+	).appendTo($('#footer .f1'));
 	
+	// footer copyright
+	var dt = new Date();
+	$('<span>Copyright 2013-'+dt.getYear()+' '+ $('.brand > a > b').text()+' - All Rights Reserved.</span>').prependTo($('#footer .f3'));
 	
 	// move breadcrumb to top
 	$('#post-breadcrumb').prependTo($('.post .item'));
@@ -114,7 +143,7 @@ $(document).ready(function(){
 	});
 
 	// hidding aff links
-	$('a[href]').attr('target', '_blank');	
+	$('a[href]').attr('target', "_blank");	
 	setTimeout(function(){
 		$('a[href]').each(function(){
 			var href = $(this).attr('href');
