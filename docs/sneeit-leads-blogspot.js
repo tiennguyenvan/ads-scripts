@@ -113,7 +113,11 @@ $(document).ready(function(){
 	).insertAfter($('.PopularPosts1'));
 	
 	// jump top
-	
+	$('<a class="scroll-up shad" href="#">TOP</a>').appendTo($('body'));
+	$('.scroll-up').click(function(){
+		$("html, body").animate({ scrollTop: 0 }, 1000);
+		return false;
+	});
 
 	// footer ads <!-- WpGetFooter2 -->
 	$('<ins class="adsbygoogle"' + 
