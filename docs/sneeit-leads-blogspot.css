@@ -271,6 +271,7 @@ img {
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	display: block;
 }
 #post-body-inner img.alignleft,
 #post-body-inner .alignleft {
