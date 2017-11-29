@@ -186,7 +186,9 @@ $(document).ready(function(){
 				$(this).attr('data-href', href);			
 			}			
 		});
-		$('a[data-href]').mouseenter(function(){
+		
+		// when mouse enter
+		$('a[data-href]').mousmeenter(function(){
 			$(this).attr('href', 'javascript: void()');
 		});
 		$('a[data-href]').mousedown(function(){
