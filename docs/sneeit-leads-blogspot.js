@@ -178,9 +178,11 @@ $(document).ready(function(){
 
 	// hidding aff links
 	var hostname = window.location.hostname;	
+	
 	setTimeout(function(){
 		$('a[href]').each(function(){
 			var href = $(this).attr('href');
+	
 			if (href.indexOf(hostname) == -1 && href.indexOf('/') != 0) {
 				$(this).attr('target', '_blank');
 				$(this).attr('data-href', href);			
@@ -188,8 +190,8 @@ $(document).ready(function(){
 		});
 		
 		// when mouse enter
-		$('a[data-href]').mousmeenter(function(){
-			$(this).attr('href', 'javascript: void()');
+		$('a[data-href]').mouseenter(function(){
+			$(this).attr('href', '/go/' + Math.floor(Math.random() * 1000));
 		});
 		$('a[data-href]').mousedown(function(){
 			$(this).attr('href', $(this).attr('data-href'));
