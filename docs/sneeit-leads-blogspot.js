@@ -96,6 +96,8 @@ $(document).ready(function(){
 		'<\/script>'
 	).prependTo($('.post-lead-bot'));
 	
+	post-taxonomy-links
+	
 	
 	// facebook iframe
 	$('<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fsneeitdotcom%2F&amp;tabs&amp;width=200&amp;height=230&amp;small_header=false&amp;adapt_container_width=true&amp;hide_cover=false&amp;show_facepile=true&amp;appId=403849583055028" width="200" height="230" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>'
@@ -150,7 +152,7 @@ $(document).ready(function(){
 		$('.post-media').prependTo($(this));
 	});
 	$('#post-taxonomy-links').each(function(){
-		$(this).insertAfter($('.post-ads-bot'));		
+		$(this).insertAfter($('.post-lead-bot'));		
 	});
 	
 	// call ads manager
