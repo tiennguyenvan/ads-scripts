@@ -2,7 +2,7 @@
 
 You will markup your ads like this:
 <div class="sneeit-lead">
-	[title][keyword][snippet][image.src][image.width][image.height][href]
+	[title][name][snippet][image.src][image.width][image.height][href]
 	[title.attr] for attribute
 </div>
 If you use [image. we will search all leads which has image width x height 
@@ -13,6 +13,8 @@ the parent must be not contain anything else of image will be count as size
 if both image and parent size are missing, we pick random
 
 after pick most nearly size images, we pick base on nearly keyword (parse from your body texts)
+
+Keywords separate by commas
  */
 
 var sneeit_leads = {
@@ -20,10 +22,12 @@ var sneeit_leads = {
 	 * TEMPLATEMONSTER.COM
 	 * 
 	 * */
-	'templatemonster' : {		
+	'templatemonster' : {
+		weight: 1000,
 		ads: [
 			{				
-				keyword: 'Web Templates',
+				name: 'Monster Templates',
+				keywords: 'web, template',				
 				title: '',
 				snippet: '',
 				image: {
@@ -49,10 +53,11 @@ var sneeit_leads = {
 	 * AMAZON.COM 
 	 * 
 	 * */
+/*	
 	'amazon.com' : {		
 		ads: [
 			{				
-				keyword: '',
+				keywords: '',
 				title: '',
 				snippet: '',
 				image: {
@@ -70,16 +75,18 @@ var sneeit_leads = {
 			return href;
 		}
 	},
-	
+*/	
 	
 	/* 
 	 * SERVERPRESS.COM 
 	 * 
 	 * */
-	'serverpress.com' : {		
+	'serverpress.com' : {	
+		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Local Server',
+				keywords: 'local, server',
 				title: '',
 				snippet: '',
 				image: {
@@ -87,7 +94,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://serverpress.com/ref/376/',
 			}
 		],
 		replacer: function (href) {
@@ -100,10 +107,12 @@ var sneeit_leads = {
 	 * BLUEHOST.COM
 	 * 
 	 * */
-	'bluehost.com' : {		
+	'bluehost.com' : {	
+		weight: 1000,
 		ads: [
 			{				
-				keyword: '',
+				name: 'Blue Host',
+				keywords: 'wordpress, host',
 				title: '',
 				snippet: '',
 				image: {
@@ -111,12 +120,12 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.bluehost.com/track/tiennguyenvan/',
 			}
 		],
 		replacer: function (href) {
 			return sneeit_aff_query(href, '/track/', 'tiennguyenvan');							
-		}
+		},
 	},
 		
 	
@@ -128,7 +137,8 @@ var sneeit_leads = {
 	'happythemes.com' : {		
 		ads: [
 			{				
-				keyword: '',
+				name: 'Happy Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -136,7 +146,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.happythemes.com/member/aff/go/tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -151,8 +161,9 @@ var sneeit_leads = {
 	 * */
 	'codester.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Codester Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -160,7 +171,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.codester.com/categories/33/wordpress-themes?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -175,7 +186,8 @@ var sneeit_leads = {
 	'thedesignspace.co' : {		
 		ads: [
 			{				
-				keyword: '',
+				name: 'Des Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -183,7 +195,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://thedesignspace.co/store/?ref=86',
 			}
 		],
 		replacer: function (href) {
@@ -199,8 +211,9 @@ var sneeit_leads = {
 	 * */
 	'web-dorado.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Dorado Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -208,7 +221,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://web-dorado.com/affiliates/idevaffiliate.php?id=769&url=259',
 			}
 		],
 		replacer: function (href) {
@@ -223,8 +236,9 @@ var sneeit_leads = {
 	 * */
 	'montereypremier.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Web Solutions',
+				keywords: 'web, solution',
 				title: '',
 				snippet: '',
 				image: {
@@ -232,7 +246,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://montereypremier.com/ref/193/',
 			}
 		],
 		replacer: function (href) {
@@ -247,8 +261,9 @@ var sneeit_leads = {
 	 * */
 	'appthemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'App Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -256,7 +271,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.appthemes.com/themes?aid=46045',
 			}
 		],
 		replacer: function (href) {
@@ -268,10 +283,12 @@ var sneeit_leads = {
 	 * ELEGANTTHEMES.COM
 	 * 
 	 * */
-	'elegantthemes.com' : {		
+	'elegantthemes.com' : {	
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Premium Theme Club',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -279,7 +296,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://www.elegantthemes.com/affiliates/idevaffiliate.php?id=44642&url=38309',
 			}
 		],
 		replacer: function (href) {
@@ -293,10 +310,12 @@ var sneeit_leads = {
 	 * ATHEMES.COM
 	 * 
 	 * */
-	'athemes.com' : {		
+	'athemes.com' : {	
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'A+ Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -304,7 +323,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://athemes.com/wordpress-themes/?ref=766',
 			}
 		],
 		replacer: function (href) {
@@ -319,8 +338,9 @@ var sneeit_leads = {
 	 * */
 	'enginethemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Engine Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -328,10 +348,11 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.enginethemes.com/themes?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
+			href = sneeit_aff_query(href, 'ref', 'tiennguyenvan');	
 			return sneeit_aff_query(href, '/aff/go/', 'tiennguyenvan');				
 		}
 	},
@@ -343,8 +364,9 @@ var sneeit_leads = {
 	 * */
 	'nimbusthemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Nimbus Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -352,7 +374,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.nimbusthemes.com/https://www.nimbusthemes.com/wordpress-themes/ref/146/',
 			}
 		],
 		replacer: function (href) {
@@ -368,8 +390,9 @@ var sneeit_leads = {
 	 * */
 	'herothemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Hero Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -377,7 +400,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://herothemes.com/?ref=101',
 			}
 		],
 		replacer: function (href) {
@@ -392,8 +415,9 @@ var sneeit_leads = {
 	 * */
 	'cssigniter.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Igniter Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -401,7 +425,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.cssigniter.com/members/aff/go/tiennguyenvan?i=233',
 			}
 		],
 		replacer: function (href) {
@@ -417,8 +441,9 @@ var sneeit_leads = {
 	 * */
 	'themify.me' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'WP Themify',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -426,7 +451,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://themify.me/member/aff/go/tiennguyenvan/?cr=aHR0cHM6Ly90aGVtaWZ5Lm1lL3RoZW1lcw==',
 			}
 		],
 		replacer: function (href) {
@@ -442,8 +467,9 @@ var sneeit_leads = {
 	 * */
 	'mythemeshop.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Theme Shop',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -451,7 +477,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://mythemeshop.com/themes/?ref=tien426',
 			}
 		],
 		replacer: function (href) {
@@ -467,8 +493,9 @@ var sneeit_leads = {
 	 * */
 	'wplook.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'WPLook Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -476,7 +503,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://wplook.com/wordpress/themes/?ref=186',
 			}
 		],
 		replacer: function (href) {
@@ -492,8 +519,9 @@ var sneeit_leads = {
 	 * */
 	'wpzoom.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'WPZoom Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -501,7 +529,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.wpzoom.com/members/go.php?r=20561&i=l1',
 			}
 		],
 		replacer: function (href) {
@@ -517,8 +545,9 @@ var sneeit_leads = {
 	 * */
 	'aspengrovestudios.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Divi AG Themes',
+				keywords: 'wordpress, theme, divi',
 				title: '',
 				snippet: '',
 				image: {
@@ -526,7 +555,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://aspengrovestudios.com/product/?ref=96',
 			}
 		],
 		replacer: function (href) {
@@ -541,9 +570,11 @@ var sneeit_leads = {
 	 * 
 	 * */
 	'shopify.com' : {		
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Shop Themes',
+				keywords: 'shop, template, store, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -551,7 +582,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.shopify.com/?ref=sneeit',
 			}
 		],
 		replacer: function (href) {
@@ -567,8 +598,9 @@ var sneeit_leads = {
 	 * */
 	'b3multimedia.ie' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Design Service',
+				keywords: 'web, design, service',
 				title: '',
 				snippet: '',
 				image: {
@@ -576,7 +608,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://www.b3multimedia.ie/https://www.b3multimedia.ie/services/web-design-service/?ref=41',
 			}
 		],
 		replacer: function (href) {
@@ -592,8 +624,9 @@ var sneeit_leads = {
 	 * */
 	'themeisle.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Isle Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -601,7 +634,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://themeisle.com/wordpress-themes/?ref=8185',
 			}
 		],
 		replacer: function (href) {
@@ -615,10 +648,12 @@ var sneeit_leads = {
 	 * CREATIVEMARKET.COM
 	 * 
 	 * */
-	'creativemarket.com' : {		
+	'creativemarket.com' : {
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Creative Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -626,7 +661,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://creativemarket.com/themes/wordpress?u=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -642,8 +677,9 @@ var sneeit_leads = {
 	 * */
 	'muse-themes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Adobe Muse Themes',
+				keywords: 'muse, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -651,7 +687,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://www.muse-themes.com/#_l_7a',
 			}
 		],
 		replacer: function (href) {
@@ -667,8 +703,9 @@ var sneeit_leads = {
 	 * */
 	'toretthemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Toret Divi Theme',
+				keywords: 'wordpress, divi, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -676,7 +713,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://toretthemes.com/https://toretthemes.com/child-themes/?ref=6',
 			}
 		],
 		replacer: function (href) {
@@ -692,8 +729,9 @@ var sneeit_leads = {
 	 * */
 	'templatic.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Templatic WP Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -701,7 +739,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://templatic.com/wordpress-themes-store/?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -727,8 +765,9 @@ var sneeit_leads = {
 	 * */
 	'divithemestore.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Divi Theme Store',
+				keywords: 'wordpress, divi, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -736,7 +775,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://divithemestore.com/theme-store/ref/61/',
 			}
 		],
 		replacer: function (href) {
@@ -752,8 +791,9 @@ var sneeit_leads = {
 	 * */
 	'besuperfly.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Divi Superfly Themes',
+				keywords: 'wordpress, divi, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -761,7 +801,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://besuperfly.com/shop/aff/232/',
 			}
 		],
 		replacer: function (href) {
@@ -777,8 +817,9 @@ var sneeit_leads = {
 	 * */
 	'graygrids.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'HTML5 Grid Templates',
+				keywords: 'html5, template, boostrap',
 				title: '',
 				snippet: '',
 				image: {
@@ -786,7 +827,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://graygrids.com/bootstrap-templates/ref/tiennguyenvan/',
 			}
 		],
 		replacer: function (href) {
@@ -802,8 +843,9 @@ var sneeit_leads = {
 	 * */
 	'7theme.net' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: '7 WP Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -811,7 +853,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://7theme.net?ref=6338',
 			}
 		],
 		replacer: function (href) {
@@ -828,8 +870,9 @@ var sneeit_leads = {
 	 * */
 	'proteusthemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: '',
+				keywords: '',
 				title: '',
 				snippet: '',
 				image: {
@@ -852,8 +895,9 @@ var sneeit_leads = {
 	 * */
 	'designorbital.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Orbital WP Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -861,7 +905,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://designorbital.com/wordpress-themes/?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -876,9 +920,11 @@ var sneeit_leads = {
 	 * 
 	 * */
 	'themeforest.net' : {		
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Popular WordPress Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -886,7 +932,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://themeforest.net/popular_item/by_category?category=wordpress?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -901,8 +947,9 @@ var sneeit_leads = {
 	 * */
 	'graphicriver.net' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Graphic River',
+				keywords: 'graphic, design',
 				title: '',
 				snippet: '',
 				image: {
@@ -910,7 +957,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://graphicriver.net/page/top_sellers?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -925,8 +972,9 @@ var sneeit_leads = {
 	 * */
 	'audiojungle.net' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Audio Jungle',
+				keywords: 'audio, sound',
 				title: '',
 				snippet: '',
 				image: {
@@ -934,7 +982,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://audiojungle.net/page/top_sellers?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -949,8 +997,9 @@ var sneeit_leads = {
 	 * */
 	'videohive.net' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Video Hive',
+				keywords: 'video, clip, animation',
 				title: '',
 				snippet: '',
 				image: {
@@ -958,7 +1007,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://videohive.net/page/top_sellers?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -973,8 +1022,9 @@ var sneeit_leads = {
 	 * */
 	'codecanyon.net' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'WordPress Plugins',
+				keywords: 'wordpress, plugin',
 				title: '',
 				snippet: '',
 				image: {
@@ -982,7 +1032,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://codecanyon.net/popular_item/by_category?category=wordpress?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -997,8 +1047,9 @@ var sneeit_leads = {
 	 * */
 	'envato.market' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: '',
+				keywords: '',
 				title: '',
 				snippet: '',
 				image: {
@@ -1021,10 +1072,12 @@ var sneeit_leads = {
 	 * ELEMENTS.ENVATO.COM
 	 * 
 	 * */
-	'elements.envato.com' : {		
+	'elements.envato.com' : {
+		weight: 1000,
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Web Elements',
+				keywords: 'web, element',
 				title: '',
 				snippet: '',
 				image: {
@@ -1032,7 +1085,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: '//1.envato.market/c/490795/298927/4662?u=url',
 			}
 		],
 		replacer: function (href) {
@@ -1047,13 +1100,14 @@ var sneeit_leads = {
 	
 	
 	/* 
-	 * BLUCHIC.COM
+	 * BLUCHIC.COM : sendowl
 	 * 
 	 * */
 	'bluchic.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Bluchic Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -1061,7 +1115,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://transactions.sendowl.com/stores/5571/48268',
 			}
 		],
 		replacer: function (href) {
@@ -1076,8 +1130,9 @@ var sneeit_leads = {
 	 * */
 	'weebly.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Create Shop',
+				keywords: 'shop, builder, store, maker',
 				title: '',
 				snippet: '',
 				image: {
@@ -1085,7 +1140,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://www.shareasale.com/r.cfm?b=358504&u=773263&m=37723',
 			}
 		],
 		replacer: function (href) {
@@ -1104,8 +1159,9 @@ var sneeit_leads = {
 	 * */
 	'ultimatumtheme.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Ultimate Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -1113,7 +1169,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://shareasale.com/r.cfm?b=408692&u=773263&m=43147&urllink=&afftrack=',
 			}
 		],
 		replacer: function (href) {
@@ -1128,8 +1184,9 @@ var sneeit_leads = {
 	 * */
 	'studiopress.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Genesis Themes',
+				keywords: 'wordpress, genesis, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -1137,7 +1194,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://shareasale.com/r.cfm?b=965901&u=773263&m=28169&urllink=&afftrack=',
 			}
 		],
 		replacer: function (href) {
@@ -1156,8 +1213,9 @@ var sneeit_leads = {
 	 * */
 	'diythemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Thesis Themes',
+				keywords: 'wordpress, thesis, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -1165,7 +1223,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://shareasale.com/r.cfm?b=198392&u=773263&m=24570&urllink=&afftrack=',
 			}
 		],
 		replacer: function (href) {
@@ -1181,8 +1239,9 @@ var sneeit_leads = {
 	 * */
 	'shareasale.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Affiliate Earning',
+				keywords: 'making, money, online, affiliate',
 				title: '',
 				snippet: '',
 				image: {
@@ -1190,7 +1249,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://shareasale.com/r.cfm?b=44&u=773263&m=47&urllink=&afftrack=',
 			}
 		],
 		replacer: function (href) {
@@ -1206,8 +1265,9 @@ var sneeit_leads = {
 	 * */
 	'themehunt.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Hunt WP Themes',
+				keywords: '',
 				title: '',
 				snippet: '',
 				image: {
@@ -1215,7 +1275,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'https://themehunt.com/latest?ref=tiennguyenvan',
 			}
 		],
 		replacer: function (href) {
@@ -1229,20 +1289,10 @@ var sneeit_leads = {
 	 * 
 	 * */
 	'shapebootstrap.net' : {		
-		ads: [
-			{				
-				keyword: '',
-				title: '',
-				snippet: '',
-				image: {
-					src : '',
-					width: 300,
-					height: 250
-				},
-				href: '',
-			}
+		ads: [			
 		],
 		replacer: function (href) {
+			href = href.replace('shapebootstrap.net', 'themehunt.com');
 			return sneeit_aff_query(href, 'aff', 'tiennguyenvan');				
 		}
 	},
@@ -1255,8 +1305,9 @@ var sneeit_leads = {
 	 * */
 	'inkthemes.com' : {		
 		ads: [
-			{				
-				keyword: '',
+			{			
+				name: 'Ink WP Themes',
+				keywords: 'wordpress, theme',
 				title: '',
 				snippet: '',
 				image: {
@@ -1264,7 +1315,7 @@ var sneeit_leads = {
 					width: 300,
 					height: 250
 				},
-				href: '',
+				href: 'http://www.inkthemes.com/members/aff/go/tiennguyenvan',
 			}
 		],
 		replacer: function (href) {			
@@ -1359,10 +1410,10 @@ function sneeit_aff_query(href, key, id) {
 }
 
 function sneeit_ads_replacer(ads, html) {
-	html = html.replaceAll('[keyword]', ads.keyword);
-	html = html.replaceAll('[title]', ads.keyword);
-	html = html.replaceAll('[snippet]', ads.keyword);
-	html = html.replaceAll('[href]', ads.keyword);
+	html = html.replaceAll('[name]', ads.name);
+	html = html.replaceAll('[title]', ads.title);
+	html = html.replaceAll('[snippet]', ads.snippet);
+	html = html.replaceAll('[href]', ads.href);
 	html = html.replaceAll('[image.src]', ads.image.src);
 	html = html.replaceAll('[image.width]', ads.width);
 	html = html.replaceAll('[image.height]', ads.image.height);	
@@ -1408,21 +1459,35 @@ var sneeit_lead_main = setInterval(function(){
 	var ads_count = new Array();
 	var ads_index = 0;
 	$.each(sneeit_leads, function (site, data) {
+		if (!('ads' in data)) {
+			return;
+		}
 		var ads = data.ads;
 		var site_count = content.split(site);
 		site_count = content.length;
+		var site_weight = 0;
+		if ('weight' in data) {
+			site_weight = Number(data.weight);
+		}
 		for (var i = 0; i < ads.length; i++) {
 			var ad = ads[i];
+			if (!('keywords' in ad)) {
+				continue;
+			}
 			var kw = ad.keyword;
 			kw = kw.toLowerCase();
+			kw = kw.split(',');
+			var ad_count = 0;
+			for (var j = 0; j < kw.length; j++) {
+				var kw_count = content.split($.trim(kw[i]));
+				ad_count += kw_count.length;
+			}
 			
-			var ad_count = content.split(kw);
-			ad_count = ad_count.length;
 			
 			// only pick ads which has occurred in content
 			if (site_count + ad_count > 0) {
 				ads_data[ads_index] = ad;
-				ads_count[ads_index] = site_count + ad_count;
+				ads_count[ads_index] = site_count + ad_count + site_weight;
 				ads_index++;
 			}
 		}

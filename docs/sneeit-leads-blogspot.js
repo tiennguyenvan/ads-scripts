@@ -38,9 +38,9 @@ $(document).ready(function(){
 	// main menu
 	$('.main > .menu').html(
 		'<a href="/">Home</a>'+
-		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'+
-		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'+
-		'<span class="sneeit-lead"><a href="[href]>[keyword]</a></span>'
+		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'+
+		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'+
+		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'
 	);
 	
 	// submneu <!-- WpGetMainTrans2 --> <!-- WpGetTrans3 -->
@@ -153,12 +153,21 @@ $(document).ready(function(){
 	$('#post-taxonomy-links').each(function(){
 		$(this).insertAfter($('.post-ads-bot'));		
 	});
+	
+	// call ads manager
+	var main_lead = document.createElement('script');
+	main_lead.async = true;
+	main_lead.src = 'https://tiennguyenvan.github.io/ads-scripts/sneeit-leads.js';
+	(document.getElementsByTagName('head')[0] || document.body).appendChild(main_lead);
 
 	// hidding aff links
-//	$('a[href]').attr('target', "_blank");
+	var hostname = window.location.hostname;	
 	setTimeout(function(){
 		$('a[href]').each(function(){
 			var href = $(this).attr('href');
+			if (href.indexOf(hostname) == -1 && href.indexOf('/') != 0) {
+				$(this).attr('target', '_blank');
+			}
 
 			$(this).mouseenter(function(){
 				$(this).attr('href', 'javascript: void()');
@@ -167,7 +176,9 @@ $(document).ready(function(){
 				$(this).attr('href', href);
 			});
 		});
-	}, 2000);
+	}, 1000);
+	
+	
 	
 });}, 50);
 

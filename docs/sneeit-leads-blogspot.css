@@ -467,7 +467,28 @@ img {
 .post-lead-bot {
 	margin: 20px auto 0 auto;	
 }
-
+a.scroll-up {
+    z-index:99;    
+    width:40px;
+    height:40px;
+    font-size: 25px;
+    text-align: center;
+    line-height: 40px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    position:fixed;
+    bottom:10px;
+    right:10px;
+    cursor:pointer;
+    overflow:font-size;
+    background: white;
+}
+a.scroll-up:hover {
+	background: #5F8FB3;
+	color: white;	
+}
 /* responsive */
 @media screen and (max-width: 1019px) {
 	.w {
@@ -571,6 +592,9 @@ img {
 @media screen and (max-width: 467px) {
 	.brand-lead {
 		width: auto;
+	}
+	a.scroll-up {
+		display: none;
 	}
 }
 
