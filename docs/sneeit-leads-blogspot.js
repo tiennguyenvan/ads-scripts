@@ -1,7 +1,6 @@
 var sneeit_leads_blogspot = setInterval(function(){	if (typeof($) == 'undefined') {	return;	}
 clearInterval(sneeit_leads_blogspot);
 $(document).ready(function(){
-	
 	// MODIFY HTML 	
 	// toplinks: <!-- WpGetTopLink1 -->
 	$('<ins class="adsbygoogle"'+
@@ -37,7 +36,7 @@ $(document).ready(function(){
 	
 	// main menu
 	$('.main > .menu').html(
-		'<a href="/">Home</a>'+
+		'<span><a href="/">Home</a></span>'+
 		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'+
 		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'+
 		'<span class="sneeit-lead"><a href="[href]">[name]</a></span>'
@@ -50,7 +49,7 @@ $(document).ready(function(){
 		'data-ad-slot="7640602017"></ins>' + 
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>' + 
+		'<\/script>' + 
 
 		'<ins class="adsbygoogle"' + 
 		'style="display:inline-block;width:468px;height:15px"' + 
@@ -70,7 +69,7 @@ $(document).ready(function(){
 		'data-ad-slot="6632618586"></ins>' + 
 		'<script>' + 
      		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>'
+		'<\/script>'
 	).prependTo($('.index-lead'));	
 	
 	// top post <!-- WpGetTopPost2 -->		
@@ -81,7 +80,7 @@ $(document).ready(function(){
 		'data-ad-format="auto"></ins>' + 
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>'
+		'<\/script>'
 	).prependTo($('.post-lead-top'));
 	
 	
@@ -94,7 +93,7 @@ $(document).ready(function(){
 		'data-ad-slot="1937569377"></ins>' + 
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>'
+		'<\/script>'
 	).prependTo($('.post-lead-bot'));
 	
 	
@@ -109,7 +108,7 @@ $(document).ready(function(){
 		'data-ad-slot="5826711489"></ins>' + 
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>'
+		'<\/script>'
 	).insertAfter($('.PopularPosts1'));
 	
 	// jump top
@@ -127,7 +126,7 @@ $(document).ready(function(){
 		'data-ad-format="auto"></ins>' + 
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
-		'</script>'
+		'<\/script>'
 	).appendTo($('#footer .f1'));
 	
 	// footer copyright

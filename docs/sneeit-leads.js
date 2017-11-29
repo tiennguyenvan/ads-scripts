@@ -1409,7 +1409,7 @@ function sneeit_aff_query(href, key, id) {
 	return href;
 }
 
-function sneeit_ads_replacer(ads, html) {
+function sneeit_ads_replacer(ads, html) {	
 	html = html.replaceAll('[name]', ads.name);
 	html = html.replaceAll('[title]', ads.title);
 	html = html.replaceAll('[snippet]', ads.snippet);
@@ -1417,16 +1417,35 @@ function sneeit_ads_replacer(ads, html) {
 	html = html.replaceAll('[image.src]', ads.image.src);
 	html = html.replaceAll('[image.width]', ads.width);
 	html = html.replaceAll('[image.height]', ads.image.height);	
+	return html;
 }
-function sneeit_ads_used(ads_data, index) {
+function sneeit_ads_pick_index(ads_data) {
+	var last = 0;	
+	for (
+		var last = 0; 
+		last < ads_data.length - 1 && ads_data[last].count == ads_data[last+1].count; 
+		last++
+	);
+	if (last > 0) {
+		return Math.floor(Math.random() * (last + 1));
+	}
+	
+	return 0;
+}
+
+function sneeit_ads_shuffle(ads_data, index) {
+	if (typeof(index) == 'undefined') {
+		index = 0;
+	}
 	if (ads_data.length < 2 || index >= ads_data.length ) {
 		return ads_data;
 	}
-	var temp = ads_data[index];
-	for (var i = 0; i < ads_data.length - 1; i++) {
-		ads_data[i] = ads_data[i+1];
+
+	var temp = new Object(ads_data[index]);
+	for (var i = index; i < ads_data.length - 1; i++) {
+		ads_data[i] = new Object(ads_data[i+1]);
 	}
-	ads_data[ads_data.length - 1] = temp;
+	ads_data[ads_data.length - 1] = new Object(temp);
 	
 	return ads_data;
 }
@@ -1453,7 +1472,9 @@ var sneeit_lead_main = setInterval(function(){
 	
 	/* parse content and count keywork match for ads */
 	var content = $('html').text();
+	var content_html = $('html').html();
 	content = content.toLowerCase();
+
 	
 	var ads_data = new Array();
 	var ads_count = new Array();
@@ -1463,20 +1484,22 @@ var sneeit_lead_main = setInterval(function(){
 			return;
 		}
 		var ads = data.ads;
-		var site_count = content.split(site);
-		site_count = content.length;
+		var site_count = content_html.split(site);
+		site_count = site_count.length;
 		var site_weight = 0;
 		if ('weight' in data) {
 			site_weight = Number(data.weight);
 		}
 		for (var i = 0; i < ads.length; i++) {
-			var ad = ads[i];
-			if (!('keywords' in ad)) {
+			var ad = new Object(ads[i]);
+			
+			if (!('keywords' in ad) || !ad.keywords) {
 				continue;
 			}
 			var kw = ad.keywords;
 			kw = kw.toLowerCase();
 			kw = kw.split(',');
+			
 			var ad_count = 0;
 			for (var j = 0; j < kw.length; j++) {
 				var kw_count = content.split($.trim(kw[i]));
@@ -1484,15 +1507,18 @@ var sneeit_lead_main = setInterval(function(){
 			}
 			
 			
+			
 			// only pick ads which has occurred in content
 			if (site_count + ad_count > 0) {
-				ads_data[ads_index] = ad;
-				ads_count[ads_index] = site_count + ad_count + site_weight;
+				ad.count = site_count + ad_count + site_weight;
+				ads_data[ads_index] = new Object(ad);
+				ads_count[ads_index] = ad.count;
 				ads_index++;
 			}
 		}
 	});
 	
+
 	/* resort ads */
 	for (var i = 0; i < ads_index - 1; i++) {
 		for (var j = i + 1; j < ads_index; j++) {
@@ -1501,19 +1527,22 @@ var sneeit_lead_main = setInterval(function(){
 				ads_count[i] = ads_count[j];
 				ads_count[j] = count;
 				
-				var data = ads_data[i];
-				ads_data[i] = ads_data[j];
-				ads_data[j] = data;
+				var temp = new Object(ads_data[i]);
+				ads_data[i] = new Object(ads_data[j]);
+				ads_data[j] = new Object(temp);
 			}
 		}
 	}
-				
+
+	
 	/* replace all leads base on ads data */	
 	$('.sneeit-lead').each(function(){		
 		var html = $(this).html();
 		
+		
 		// this containt image object 
-		if (html.indexOf('[image:') != -1) {
+		if (html.indexOf('[image.') != -1) {
+			
 			var img = $(this).find('img');
 			
 			if (img.length) {
@@ -1537,9 +1566,9 @@ var sneeit_lead_main = setInterval(function(){
 						
 						if (Math.abs(img_width - image.width) < 20 && 
 							Math.abs(img_height - image.height) < 20
-						) {
-							ads_data = sneeit_ads_used(ads_data, i);
+						) {							
 							$(this).html(sneeit_ads_replacer(ad, html));
+							ads_data = sneeit_ads_shuffle(ads_data, i);
 							return;
 						}
 					}					
@@ -1552,9 +1581,9 @@ var sneeit_lead_main = setInterval(function(){
 						var ad = ads_data[i];
 						var image = ad.image;	
 						
-						if (Math.abs(img_width - image.width) < 20) {
-							ads_data = sneeit_ads_used(ads_data, i);
+						if (Math.abs(img_width - image.width) < 20) {							
 							$(this).html(sneeit_ads_replacer(ad, html));
+							ads_data = sneeit_ads_shuffle(ads_data, i);
 							return;
 						}
 					}	
@@ -1566,16 +1595,23 @@ var sneeit_lead_main = setInterval(function(){
 						var ad = ads_data[i];
 						var image = ad.image;	
 						
-						if (Math.abs(img_height - image.height) < 20) {
-							ads_data = sneeit_ads_used(ads_data, i);
+						if (Math.abs(img_height - image.height) < 20) {							
 							$(this).html(sneeit_ads_replacer(ad, html));
+							ads_data = sneeit_ads_shuffle(ads_data, i);
 							return;
 						}
 					}	
 				}
 			}
-		}		
-	});	
+		} // end of scan with [image.
+
+		var pick_index = sneeit_ads_pick_index(ads_data);
+		$(this).html(sneeit_ads_replacer(ads_data[pick_index], html));
+		ads_data = sneeit_ads_shuffle(ads_data, pick_index);				
+
+	});	// end of scanning sneed-lead
 	
 }, 50);
+
+
 
