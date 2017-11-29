@@ -73,7 +73,7 @@ img {
 	padding: 20px 30px 16px 30px;
 	border-bottom: 1px solid #e0e0e0;
 }
-.main > .menu > a {
+.main > .menu a {
 	text-decoration: none;
 	color: black;
 	font-weight: bold;
@@ -81,7 +81,7 @@ img {
 	margin: 0 3em 0 0;
 	display: inline-block;
 }
-.main > .menu > a:hover {
+.main > .menu a:hover {
 	text-decoration: underline;
 	color: #5F8FB3;
 }
@@ -469,11 +469,17 @@ img {
 }
 a.scroll-up {
     z-index:99;    
+    font-size: 16px!important;
+	font-family: Impact;    
+    color: orange;
+    letter-spacing: 1px;
+    text-decoration: none;
     width:40px;
     height:40px;
     font-size: 25px;
     text-align: center;
     line-height: 40px;
+    border: 1px solid #ccc;
     -o-border-radius: 2px;
     -ms-border-radius: 2px;
     -webkit-border-radius: 2px;

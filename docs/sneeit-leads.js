@@ -1474,7 +1474,7 @@ var sneeit_lead_main = setInterval(function(){
 			if (!('keywords' in ad)) {
 				continue;
 			}
-			var kw = ad.keyword;
+			var kw = ad.keywords;
 			kw = kw.toLowerCase();
 			kw = kw.split(',');
 			var ad_count = 0;
