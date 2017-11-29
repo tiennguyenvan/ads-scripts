@@ -1344,20 +1344,20 @@ function sneeit_aff_query(href, key, id) {
 	
 	var hash = '';
 	var query = '';
-	if (href.indexOf('#') == -1) {
+	if (href.indexOf('#') != -1) {
 		href = href.split('#');
 		hash = href[1];
 		href = href[0];			
 	}
-	if (href.indexOf('?') == -1) {
+	if (href.indexOf('?') != -1) {
 		href = href.split('?');
 		query = href[1];
 		href = href[0];
 	}
 	
 	/* affiliate URL with inner slash*/
-	if (key.indexOf('/') == -1) {
-		if (href.indexOf(key) == -1) {
+	if (key.indexOf('/') != -1) {
+		if (href.indexOf(key) != -1) {
 			href = href.split(key);
 			href[1] = href[1].split('/');
 			href[1][0] = id;
@@ -1377,7 +1377,7 @@ function sneeit_aff_query(href, key, id) {
 	/* affiliate URL with query key=id */
 	else {
 		if (query) {
-			if (query.indexOf(key+'=') == -1) {
+			if (query.indexOf(key+'=') != -1) {
 				query = query.split(key+'=');
 				query[1] = query[1].split('&');
 				query[1][0] = id;
@@ -1394,8 +1394,7 @@ function sneeit_aff_query(href, key, id) {
 		}		
 	}
 	
-	if (!(query) && !(hash) && href.lastIndexOf('/') < href.length - 1) {
-		
+	if (!(query) && !(hash) && href.lastIndexOf('/') < href.length - 1) {		
 		href += '/';
 	}
 	
