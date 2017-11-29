@@ -157,7 +157,7 @@ $(document).ready(function(){
 	// call ads manager
 	var main_lead = document.createElement('script');
 	main_lead.async = true;
-	main_lead.src = 'https://tiennguyenvan.github.io/ads-scripts/sneeit-leads.js';
+	main_lead.src = 'https://tiennguyenvan.github.io/ads-scripts/sneeit-leads.min.js';
 	(document.getElementsByTagName('head')[0] || document.body).appendChild(main_lead);
 
 	// hidding aff links
