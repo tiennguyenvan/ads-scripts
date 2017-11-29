@@ -96,7 +96,6 @@ $(document).ready(function(){
 		'<\/script>'
 	).prependTo($('.post-lead-bot'));
 	
-	post-taxonomy-links
 	
 	
 	// facebook iframe
