@@ -176,23 +176,23 @@ $(document).ready(function(){
 	main_lead.src = 'https://tiennguyenvan.github.io/ads-scripts/sneeit-leads.min.js';
 	(document.getElementsByTagName('head')[0] || document.body).appendChild(main_lead);
 
-	// hidding aff links
-	var hostname = window.location.hostname;	
-	setTimeout(function(){
-		$('a[href]').each(function(){
-			var href = $(this).attr('href');
-			if (href.indexOf(hostname) == -1 && href.indexOf('/') != 0) {
-				$(this).attr('target', '_blank');
-			}
-
-			$(this).mouseenter(function(){
-				$(this).attr('href', 'javascript: void()');
-			});
-			$(this).mousedown(function(){
-				$(this).attr('href', href);
-			});
-		});
-	}, 1000);
+//	// hidding aff links
+//	var hostname = window.location.hostname;	
+//	setTimeout(function(){
+//		$('a[href]').each(function(){
+//			var href = $(this).attr('href');
+//			if (href.indexOf(hostname) == -1 && href.indexOf('/') != 0) {
+//				$(this).attr('target', '_blank');
+//			}
+//
+//			$(this).mouseenter(function(){
+//				$(this).attr('href', 'javascript: void()');
+//			});
+//			$(this).mousedown(function(){
+//				$(this).attr('href', href);
+//			});
+//		});
+//	}, 1000);
 	
 	
 	
