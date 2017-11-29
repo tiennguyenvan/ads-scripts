@@ -243,9 +243,39 @@ img {
 #post-body-inner p {
 	margin: 0 0 20px 0;
 }
+#post-body-inner blockquote {
+	border-left: 10px solid #eec;
+	margin: 1em 0;
+	padding: 10px 20px 10px 25px;
+	background: #ffe;
+}
+
+#post-body-inner blockquote p {
+	margin: 10px 0;
+}
 #post-body-inner img {
-	margin: 0 0 15px 0;
+	margin: 0 auto 15px auto;
 	border: 1px solid #e0e0e0;
+}
+#post-body-inner .alignnone,
+#post-body-inner .aligncenter {
+	margin: auto;
+	text-align: center;
+}
+#post-body-inner img.alignleft,
+#post-body-inner .alignleft {
+	float: left;
+	max-width: 50%;	
+	margin: 20px;
+	margin-left: none;
+}
+#post-body-inner img.alignright,
+#post-body-inner .alignright {
+	float: right;
+	text-align: right;	
+	max-width: 50%;
+	margin: 20px;
+	margin-right: none;
 }
 #post-taxonomy-links {
 	margin: 30px 0;
@@ -593,6 +623,15 @@ a.scroll-up:hover {
 	}
 	.main .inner {
 		margin: 20px 10px;
+	}
+	#post-body-inner img.alignleft,
+	#post-body-inner .alignleft,
+	#post-body-inner img.alignright,
+	#post-body-inner .alignright {
+		float: none;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 @media screen and (max-width: 467px) {

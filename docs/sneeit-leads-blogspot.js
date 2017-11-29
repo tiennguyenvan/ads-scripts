@@ -110,7 +110,7 @@ $(document).ready(function(){
 		'<script>' + 
 		'(adsbygoogle = window.adsbygoogle || []).push({});' + 
 		'<\/script>'
-	).insertAfter($('.PopularPosts1'));
+	).insertAfter($('#PopularPosts1'));
 	
 	// jump top
 	$('<a class="scroll-up shad" href="#">TOP</a>').appendTo($('body'));
@@ -148,7 +148,23 @@ $(document).ready(function(){
 	$('#post-body-inner img[width="0"]').removeAttr('width');
 	$('#post-body-inner img[height="0"]').removeAttr('height');
 	$('.feature').each(function(){
-		$('.post-media').prependTo($(this));
+		if ($('.post-media').length) {
+			$('.post-media').prependTo($(this));
+		} else {
+			var tag_1st = $('#post-body-inner > *').first();
+			var tag_1st_1st = $(tag_1st).find('*').first();
+			var img_tag = false;
+			if ($(tag_1st).is('img')) {
+				img_tag = tag_1st;
+			} else if ($(tag_1st_1st).is('img')) {
+				img_tag = tag_1st_1st;
+			}
+			
+			if (img_tag) {
+				$(img_tag).prependTo($(this));
+			}
+			
+		}		
 	});
 	$('#post-taxonomy-links').each(function(){
 		$(this).insertAfter($('.post-lead-bot'));		
