@@ -128,6 +128,37 @@ var sneeit_leads = {
 		},
 	},
 		
+		
+/* 
+	 * HOSTGATOR.COM
+	 * 
+	 * */
+	'hostgator.com' : {	
+		weight: 1000,
+		ads: [
+			{				
+				name: 'Blue Host',
+				keywords: 'wordpress, host',
+				title: '',
+				snippet: '',
+				image: {
+					src : '',
+					width: 300,
+					height: 250
+				},
+				href: 'https://www.bluehost.com/track/tiennguyenvan/',
+			}
+		],
+		replacer: function (href) {
+			if (href.indexOf('partners.hostgator.com') != -1) {
+				var query = href.split('?');
+				query = query.length > 1 ? '?' + query[1] : '';
+				return 'https://partners.hostgator.com/c/1129356/177309/3094' + query;
+			}
+			
+			return 'https://partners.hostgator.com/c/1129356/215748/3094?u=' + encodeURIComponent(href);
+		},
+	},		
 	
 	
 	/* 
@@ -1610,6 +1641,28 @@ var sneeit_lead_main = setInterval(function(){
 
 	});	// end of scanning sneed-lead
 	
+	// hidding aff links
+	var hostname = window.location.hostname;	
+	
+	setTimeout(function(){
+		$('a[href]').each(function(){
+			var href = $(this).attr('href');
+	
+			if (href.indexOf(hostname) == -1 && href.indexOf('/') != 0) {
+				$(this).attr('target', '_blank');
+				$(this).attr('data-href', href);			
+			}			
+		});
+		
+		// when mouse enter
+		$('a[data-href]').mouseenter(function(){
+			$(this).attr('href', '/go/' + Math.floor(Math.random() * 1000));
+		});
+		$('a[data-href]').mousedown(function(){
+			$(this).attr('href', $(this).attr('data-href'));
+		});
+	}, 1000);
+		
 }, 50);
 
 
