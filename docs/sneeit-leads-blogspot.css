@@ -484,6 +484,10 @@ img {
 	text-decoration: underline!important;
 }
 
+.yt-sbscrb-bar, #wpvq-big-loader {
+	display: none;
+}
+
 /* ads manager */
 .top > .w > *,
 .main > .menu > *,
