@@ -14,9 +14,9 @@ $(document).ready(function(){
 
 	$(
 	'<div class="top-links">' + 
-		'<a href="https://sneeit.com/category/wordpress/themes/">WP Themes</a>'+
-		'<a href="https://sneeit.com/category/blogger/templates">Blogger Templates</a>'+
-		'<a href="https://sneeit.com/category/webmaster">Webmaster Tips</a>'+
+		'<a href="https://sneeit.com/category/wordpress/themes/">WP THEMES</a>'+
+		'<a href="https://sneeit.com/category/blogger/templates">BLOGGER TEMPLATES</a>'+
+		'<a href="https://sneeit.com/category/webmaster">WEBMASTER TIPS</a>'+
 	'</div>').prependTo($('.top .w'));
 	
 	// top social icons

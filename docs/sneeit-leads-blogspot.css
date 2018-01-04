@@ -34,9 +34,12 @@ iframe[src*="youtu"] {
 	display: block;
 	line-height: 15px;
 }
+.top .top-links {
+	float: left;
+}
 .top .top-links a {
-	float: none;
-	display: inline-block;
+	float: left;
+	margin: 0 2em 0 0;
 }
 .top a:hover {
 	text-decoration: underline;
@@ -593,16 +596,10 @@ a.scroll-up:hover {
 	.w {
 		width: 510px;
 	}
-	.top a {
-		display: none;
+	.top {
+		display: none!important;
 	}	
 
-	.top {
-		text-align: center;
-	}
-	.top > .w > * {
-		max-width: 360px;
-	}
 	.brand-lead {
 		width: 468px;
 	}
