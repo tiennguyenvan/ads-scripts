@@ -34,6 +34,10 @@ iframe[src*="youtu"] {
 	display: block;
 	line-height: 15px;
 }
+.top .top-links a {
+	float: none;
+	display: inline-block;
+}
 .top a:hover {
 	text-decoration: underline;
 	opacity: 1;

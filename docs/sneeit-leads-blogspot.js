@@ -10,7 +10,14 @@ $(document).ready(function(){
 		'<script>'+
 			'(adsbygoogle = window.adsbygoogle || []).push({});'+
 		'<\/script>'
-	).prependTo($('.top .w'));
+	).appendTo($('#post-tags'));
+
+	$(
+	'<div class="top-links">' + 
+		'<a href="https://sneeit.com/category/wordpress/themes/">WP Themes</a>'+
+		'<a href="https://sneeit.com/category/blogger/templates">Blogger Templates</a>'+
+		'<a href="https://sneeit.com/category/webmaster">Webmaster Tips</a>'+
+	'</div>').prependTo($('.top .w'));
 	
 	// top social icons
 	$('<a href="https://www.facebook.com/sneeitdotcom/" target="_blank">FACE</a>'+
